@@ -2,16 +2,23 @@ package com.dorin.pluralsight.service;
 
 import com.dorin.pluralsight.model.Customer;
 import com.dorin.pluralsight.repository.CustomerRepository;
-import com.dorin.pluralsight.repository.HibernateCustomerRepositoryImpl;
 
 import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService {
 
-    private CustomerRepository customerRepository = new HibernateCustomerRepositoryImpl();
+    private CustomerRepository customerRepository;
 
     @Override
     public List<Customer> findAll() {
         return customerRepository.findAll();
+    }
+//
+//    public CustomerServiceImpl(CustomerRepository customerRepository) {
+//        this.customerRepository = customerRepository;
+//    }
+
+    public void setCustomerRepository(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 }
